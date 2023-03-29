@@ -1,0 +1,95 @@
+CodeBase structure
+
+//controllers
+
+    controllers/folder
+        UserController//file
+        login // Endpoint
+        Create a user // Endpoint
+        Update a user // Endpoint
+        Delete a user // Endpoint
+
+        blogController//file
+            create blog item // Endpoint
+            Get all blog items // Endpoint
+            update blog item // Endpoint
+            delete blog item //  Endpoint
+
+            Get blog items by UserID
+            Get blog items by tags
+            Get blog itmes by category
+
+    
+//Services
+    Service // folder
+        context // folder
+            DataContext // file
+
+        UserService // file
+        GetUseByUserName(for login purposes)
+        UserController//file
+        login // Endpoint
+        Create a user // Endpoint
+        Update a user // Endpoint
+        Delete a user // Endpoint
+
+
+        BlogService // file
+          create blog item 
+            Get all blog items 
+            update blog item 
+            delete blog item 
+
+            Get blog items by UserID
+            Get blog items by tags
+            Get blog itmes by category
+
+        PasswordService // file
+            hash Password
+            verify hash Password
+
+
+        
+//models
+
+    models // folder    
+        userModel // file
+            int ID
+            string username
+            string salt
+            string hash
+
+
+
+        blogitemModel // file
+            int ID
+            int UserID
+            string publishedName
+            string Data
+            string Title
+            string Image
+            string Description
+            string categories
+            bool isPublished
+            bool isDeleted (Soft delete. acts like its deleted but its not.
+            its still in the database just in case we need it back)
+
+        ------items above is save to DB^-------
+        DTOs // folder  
+            login DTO // file
+            string username
+            string Password
+            CreateAccountDTO // file
+                int ID = 0
+                string usernames
+                string Password
+
+            PasswordDTO // file
+                string salt
+                string hash
+
+
+
+
+            server admin login - RememberWhenLogin
+            password- Rememberwhen23
