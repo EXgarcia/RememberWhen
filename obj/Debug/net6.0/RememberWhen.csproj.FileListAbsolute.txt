@@ -80,3 +80,8 @@ C:\Users\extur\Documents\Level 3\RememberWhen\obj\Debug\net6.0\refint\RememberWh
 C:\Users\extur\Documents\Level 3\RememberWhen\obj\Debug\net6.0\RememberWhen.pdb
 C:\Users\extur\Documents\Level 3\RememberWhen\obj\Debug\net6.0\RememberWhen.genruntimeconfig.cache
 C:\Users\extur\Documents\Level 3\RememberWhen\obj\Debug\net6.0\ref\RememberWhen.dll
+C:\Users\extur\Documents\Level 3\RememberWhen\bin\Debug\net6.0\publish\web.config
+C:\Users\extur\Documents\Level 3\RememberWhen\bin\Debug\net6.0\publish\appsettings.Development.json
+C:\Users\extur\Documents\Level 3\RememberWhen\bin\Debug\net6.0\publish\appsettings.json
+C:\Users\extur\Documents\Level 3\RememberWhen\bin\Debug\net6.0\publish\RememberWhen.deps.json
+C:\Users\extur\Documents\Level 3\RememberWhen\bin\Debug\net6.0\publish\RememberWhen.runtimeconfig.json
