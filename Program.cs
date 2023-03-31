@@ -12,6 +12,18 @@ builder.Services.AddScoped<PasswordService>();
 var connectionString = builder.Configuration.GetConnectionString("MyBlogString");
 builder.Services.AddDbContext<DataContext>(options => options.UseSqlServer(connectionString) );
 
+builder.Services.AddCors(options => {
+    options.AddPolicy("BlogPolicy", 
+    builder => {
+        builder.WithOrigins("https://localhost:3000")
+        .AllowAnyHeader()
+        .AllowAnyMethod();
+    });
+});
+
+
+
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
