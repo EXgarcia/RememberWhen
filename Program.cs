@@ -13,9 +13,9 @@ var connectionString = builder.Configuration.GetConnectionString("MyBlogString")
 builder.Services.AddDbContext<DataContext>(options => options.UseSqlServer(connectionString) );
 
 builder.Services.AddCors(options => {
-    options.AddPolicy("BlogPolicy", 
+    options.AddPolicy("RememberWhenPolicy", 
     builder => {
-        builder.WithOrigins("https://localhost:3000")
+        builder.WithOrigins("http://localhost:3000")
         .AllowAnyHeader()
         .AllowAnyMethod();
     });
