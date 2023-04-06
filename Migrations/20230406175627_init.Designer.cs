@@ -11,7 +11,7 @@ using RememberWhen.Properties.Services.Context;
 namespace RememberWhen.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230328184412_init")]
+    [Migration("20230406175627_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -24,7 +24,7 @@ namespace RememberWhen.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("RememberWhen.Models.BlogItemModel", b =>
+            modelBuilder.Entity("RememberWhen.Models.MemoryItemModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -64,7 +64,7 @@ namespace RememberWhen.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("BlogInfo");
+                    b.ToTable("MemoryInfo");
                 });
 
             modelBuilder.Entity("RememberWhen.Models.UserModel", b =>

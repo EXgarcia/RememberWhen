@@ -11,7 +11,7 @@ namespace RememberWhen.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "BlogInfo",
+                name: "MemoryInfo",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -29,7 +29,7 @@ namespace RememberWhen.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_BlogInfo", x => x.Id);
+                    table.PrimaryKey("PK_MemoryInfo", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -52,7 +52,7 @@ namespace RememberWhen.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "BlogInfo");
+                name: "MemoryInfo");
 
             migrationBuilder.DropTable(
                 name: "UserInfo");

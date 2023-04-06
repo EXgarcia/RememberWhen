@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace RememberWhen.Models
 {
-    public class BlogItemModel
+    public class MemoryItemModel
     {
         public int Id { get; set; }
         public int UserID { get; set; }
@@ -19,6 +19,6 @@ namespace RememberWhen.Models
                public bool isPublished { get; set; }
                public bool isDeleted {get; set;}
 
-               public BlogItemModel(){}
+               public MemoryItemModel(){}
     }
 }

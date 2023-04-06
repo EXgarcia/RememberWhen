@@ -6,10 +6,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddScoped<UserService>();
-builder.Services.AddScoped<BlogService>();
+builder.Services.AddScoped<MemoryService>();
 builder.Services.AddScoped<PasswordService>();
 
-var connectionString = builder.Configuration.GetConnectionString("MyBlogString");
+var connectionString = builder.Configuration.GetConnectionString("MyMemoryString");
 builder.Services.AddDbContext<DataContext>(options => options.UseSqlServer(connectionString) );
 
 builder.Services.AddCors(options => {
@@ -39,7 +39,7 @@ if (app.Environment.IsDevelopment())
 }
 
 //app.UseHttpsRedirection();
-app.UseCors("BlogPolicy");
+app.UseCors("RememberWhenPolicy");
 
 app.UseAuthorization();
 

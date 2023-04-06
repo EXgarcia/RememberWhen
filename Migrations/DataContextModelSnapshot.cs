@@ -21,7 +21,7 @@ namespace RememberWhen.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("RememberWhen.Models.BlogItemModel", b =>
+            modelBuilder.Entity("RememberWhen.Models.MemoryItemModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -61,7 +61,7 @@ namespace RememberWhen.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("BlogInfo");
+                    b.ToTable("MemoryInfo");
                 });
 
             modelBuilder.Entity("RememberWhen.Models.UserModel", b =>
