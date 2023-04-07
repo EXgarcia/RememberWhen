@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using blogBackend.Models.DTO;
 using Microsoft.AspNetCore.Mvc;
 using RememberWhen.Models;
 using RememberWhen.Models.DTO;
@@ -56,5 +57,12 @@ namespace RememberWhen.Controllers
         {
             return _data.DeleteUser(userToDelete);
         }
+
+         [HttpGet]
+        [Route("userbyusername/{username}")]
+        public UserIdDTO GetUserIdDTOByUsername(string username){
+            return _data.GetUserIdDTOByUsername(username);
+        }
+        
     }
 }

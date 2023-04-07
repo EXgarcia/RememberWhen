@@ -11,6 +11,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using blogBackend.Models.DTO;
 
 namespace RememberWhen.Properties.Services
 {
@@ -161,6 +162,14 @@ namespace RememberWhen.Properties.Services
             }
 
             return result;
+        }
+
+              public UserIdDTO GetUserIdDTOByUsername(string username){
+            var UserInfo = new UserIdDTO();
+            var foundUser= _context.UserInfo.SingleOrDefault(user => user.Username == username);
+            UserInfo.UserId = foundUser.Id;
+            UserInfo.PublisherName = foundUser.Username;
+            return UserInfo;
         }
     }
 }
