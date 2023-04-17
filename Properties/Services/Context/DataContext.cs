@@ -11,6 +11,7 @@ namespace RememberWhen.Properties.Services.Context
     {
         public DbSet<UserModel> UserInfo {get; set;}
         public DbSet<MemoryItemModel> MemoryInfo {get; set;}
+        public DbSet<FolderModel> FolderInfo { get; set; }
 
         public DataContext(DbContextOptions options): base(options)
         {}

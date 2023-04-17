@@ -7,22 +7,22 @@ using RememberWhen.Properties.Services.Context;
 
 namespace RememberWhen.Properties.Services
 {
-  public class MemoryService
+    public class MemoryService
     {
-      private readonly DataContext _context;
-      public MemoryService(DataContext context)
-      {
-        _context = context;
-        
-      }
-          public bool  AddMemoryItem(MemoryItemModel newMemoryItem)
+        private readonly DataContext _context;
+        public MemoryService(DataContext context)
         {
-          _context.Add(newMemoryItem);
-          return _context.SaveChanges() != 0;
-            
-        } 
+            _context = context;
 
-           public IEnumerable<MemoryItemModel> GetAllMemoryItems()
+        }
+        public bool AddMemoryItem(MemoryItemModel newMemoryItem)
+        {
+            _context.Add(newMemoryItem);
+            return _context.SaveChanges() != 0;
+
+        }
+
+        public IEnumerable<MemoryItemModel> GetAllMemoryItems()
         {
 
             return _context.MemoryInfo;
@@ -31,8 +31,8 @@ namespace RememberWhen.Properties.Services
 
         public IEnumerable<MemoryItemModel> GetItemsByUserId(int userId)
         {
-          return _context.MemoryInfo.Where(item => item.UserID  == userId );
-            
+            return _context.MemoryInfo.Where(item => item.UserID == userId);
+
         }
 
         public IEnumerable<MemoryItemModel> GetItemsByCategory(string category)
@@ -45,36 +45,36 @@ namespace RememberWhen.Properties.Services
         public IEnumerable<MemoryItemModel> GetItemsByDate(string date)
         {
 
-          return _context.MemoryInfo.Where(item => item.Date == date);
-            
+            return _context.MemoryInfo.Where(item => item.Date == date);
+
         }
 
 
-              public IEnumerable<MemoryItemModel> GetPublishedItems()
+        public IEnumerable<MemoryItemModel> GetPublishedItems()
         {
-          return _context.MemoryInfo.Where(item => item.isPublished);
+            return _context.MemoryInfo.Where(item => item.isPublished);
 
-            
+
         }
 
-           public List<MemoryItemModel> GetItemsByTag(string Tag)
+        public List<MemoryItemModel> GetItemsByTag(string Tag)
         {
             List<MemoryItemModel> AllMemorysWithTag = new List<MemoryItemModel>();
 
             var allItems = GetAllMemoryItems().ToList();
 
-            for(int i = 0; i < allItems.Count;  i++)
+            for (int i = 0; i < allItems.Count; i++)
             {
-              MemoryItemModel Item = allItems[i];
-              var itemArr = Item.Tags.Split(",");
+                MemoryItemModel Item = allItems[i];
+                var itemArr = Item.Tags.Split(",");
 
-              for(int j = 0; j < itemArr.Length; j++)
-              {
-                if(itemArr[j].Contains(Tag))
+                for (int j = 0; j < itemArr.Length; j++)
                 {
-                  AllMemorysWithTag.Add(Item);
+                    if (itemArr[j].Contains(Tag))
+                    {
+                        AllMemorysWithTag.Add(Item);
+                    }
                 }
-              } 
 
 
             }
@@ -82,20 +82,20 @@ namespace RememberWhen.Properties.Services
         }
 
 
-         public MemoryItemModel GetMemoryItemById(int id)
+        public MemoryItemModel GetMemoryItemById(int id)
         {
             return _context.MemoryInfo.SingleOrDefault(item => item.Id == id);
         }
 
 
-         public bool UpdateMemoryItem(MemoryItemModel MemoryUpdate)
+        public bool UpdateMemoryItem(MemoryItemModel MemoryUpdate)
         {
             _context.Update<MemoryItemModel>(MemoryUpdate);
             return _context.SaveChanges() != 0;
         }
 
 
-          public bool DeleteMemoryItem(MemoryItemModel MemoryDelete)
+        public bool DeleteMemoryItem(MemoryItemModel MemoryDelete)
         {
             MemoryDelete.isDeleted = true;
             _context.Update<MemoryItemModel>(MemoryDelete);

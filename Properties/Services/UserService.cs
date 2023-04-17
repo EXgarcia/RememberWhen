@@ -18,7 +18,8 @@ namespace RememberWhen.Properties.Services
     public class UserService : ControllerBase
     {
         private readonly DataContext _context;
-        public UserService(DataContext context){
+        public UserService(DataContext context)
+        {
             _context = context;
         }
 
@@ -33,7 +34,7 @@ namespace RememberWhen.Properties.Services
         public bool AddUser(CreateAccountDTO UserToAdd)
         {
             bool result = false;
-            if(!DoesUserExist(UserToAdd.Username))
+            if (!DoesUserExist(UserToAdd.Username))
             {
                 UserModel newUser = new UserModel();
 
@@ -45,7 +46,7 @@ namespace RememberWhen.Properties.Services
 
                 _context.Add(newUser);
 
-               // _context.SaveChanges();
+                // _context.SaveChanges();
                 result = _context.SaveChanges() != 0;
             }
 
@@ -57,7 +58,7 @@ namespace RememberWhen.Properties.Services
 
             byte[] SaltByte = new byte[64];
             var provider = new RNGCryptoServiceProvider();
-            
+
             provider.GetNonZeroBytes(SaltByte);
 
             var Salt = Convert.ToBase64String(SaltByte);
@@ -83,15 +84,16 @@ namespace RememberWhen.Properties.Services
 
             return newHash == storedHash;
         }
-         public IActionResult Login(LoginDTO User)
+        public IActionResult Login(LoginDTO User)
         {
             IActionResult Result = Unauthorized();
 
-            if(DoesUserExist(User.Username)){
+            if (DoesUserExist(User.Username))
+            {
 
                 UserModel foundUser = GetUserByUsername(User.Username);
 
-                if(VerifyUserPassword(User.Password, foundUser.Hash, foundUser.Salt))
+                if (VerifyUserPassword(User.Password, foundUser.Hash, foundUser.Salt))
                 {
                     var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("superSecretKey@345"));
                     var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
@@ -117,20 +119,21 @@ namespace RememberWhen.Properties.Services
             return _context.UserInfo.SingleOrDefault(user => user.Username == username);
         }
 
-          public bool UpdateUser(UserModel userToUpdate)
+        public bool UpdateUser(UserModel userToUpdate)
         {
             _context.Update<UserModel>(userToUpdate);
             return _context.SaveChanges() != 0;
         }
 
 
-              [HttpPost]
+        [HttpPost]
         [Route("UpdateUser/{id}/{username}")]
         public bool UpdateUsername(int id, string username)
         {
             UserModel foundUser = GetUserById(id);
             bool result = false;
-            if(foundUser != null){
+            if (foundUser != null)
+            {
                 //fontend- make sure user exists
                 foundUser.Username = username;
 
@@ -149,24 +152,25 @@ namespace RememberWhen.Properties.Services
 
         }
 
-           public bool DeleteUser(string userToDelete)
+        public bool DeleteUser(string userToDelete)
         {
             UserModel foundUser = GetUserByUsername(userToDelete);
 
             bool result = false;
-            if(foundUser != null)
+            if (foundUser != null)
             {
                 _context.Remove<UserModel>(foundUser);
 
-                result = _context.SaveChanges() !=0;
+                result = _context.SaveChanges() != 0;
             }
 
             return result;
         }
 
-              public UserIdDTO GetUserIdDTOByUsername(string username){
+        public UserIdDTO GetUserIdDTOByUsername(string username)
+        {
             var UserInfo = new UserIdDTO();
-            var foundUser= _context.UserInfo.SingleOrDefault(user => user.Username == username);
+            var foundUser = _context.UserInfo.SingleOrDefault(user => user.Username == username);
             UserInfo.UserId = foundUser.Id;
             UserInfo.PublisherName = foundUser.Username;
             return UserInfo;
