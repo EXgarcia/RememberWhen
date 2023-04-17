@@ -101,5 +101,10 @@ namespace RememberWhen.Properties.Services
             _context.Update<MemoryItemModel>(MemoryDelete);
             return _context.SaveChanges() != 0;
         }
+
+        public IEnumerable<MemoryItemModel> GetItemsByFolderId(int folderId)
+        {
+            return _context.MemoryInfo.Where(item => item.FolderId == folderId);
+        }
     }
 }
