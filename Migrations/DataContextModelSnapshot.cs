@@ -33,6 +33,9 @@ namespace RememberWhen.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("isDeleted")
+                        .HasColumnType("bit");
+
                     b.Property<int>("userId")
                         .HasColumnType("int");
 

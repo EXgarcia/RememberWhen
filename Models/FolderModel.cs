@@ -10,6 +10,7 @@ namespace RememberWhen.Models
         public int Id { get; set; }
         public int userId { get; set; }
         public string Name { get; set; }
+        public bool isDeleted { get; set; } 
         public FolderModel() { }
 
     }

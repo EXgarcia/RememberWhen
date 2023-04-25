@@ -77,7 +77,7 @@ namespace RememberWhen.Controllers
         }
 
 
-        [HttpPost]
+        [HttpPut]
         [Route("UpdateMemoryItem")]
         public bool UpdateMemoryItem(MemoryItemModel MemoryUpdate)
         {

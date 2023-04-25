@@ -37,6 +37,21 @@ namespace RememberWhen.Controllers
             return _data.GetFoldersByUserId(userid);
         }
 
+        [HttpPut]
+        [Route("UpdateFolder")]
+        public bool UpdateFolder(FolderModel FolderUpdate)
+        {
+            return _data.UpdateFolder(FolderUpdate);
+        }
+
+        [HttpPost]
+        [Route("DeleteFolder")]
+        public bool DeleteFolder(FolderModel FolderDelete)
+        {
+            return _data.DeleteFolder(FolderDelete);
+        }
+
+
 
     }
 }

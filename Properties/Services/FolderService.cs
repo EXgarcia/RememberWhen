@@ -35,5 +35,18 @@ namespace RememberWhen.Properties.Services
 
         }
 
+        public bool UpdateFolder(FolderModel FolderUpdate)
+        {
+            _context.Update<FolderModel>(FolderUpdate);
+            return _context.SaveChanges() != 0;
+        }
+
+        public bool DeleteFolder(FolderModel FolderDelete)
+        {
+            FolderDelete.isDeleted = true;
+            _context.Update<FolderModel>(FolderDelete);
+            return _context.SaveChanges() != 0;
+        }
+
     }
 }

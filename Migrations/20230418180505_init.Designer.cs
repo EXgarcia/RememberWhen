@@ -11,7 +11,7 @@ using RememberWhen.Properties.Services.Context;
 namespace RememberWhen.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230413204659_init")]
+    [Migration("20230418180505_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -35,6 +35,9 @@ namespace RememberWhen.Migrations
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("isDeleted")
+                        .HasColumnType("bit");
 
                     b.Property<int>("userId")
                         .HasColumnType("int");
