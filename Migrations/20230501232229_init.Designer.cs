@@ -11,7 +11,7 @@ using RememberWhen.Properties.Services.Context;
 namespace RememberWhen.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230418180505_init")]
+    [Migration("20230501232229_init")]
     partial class init
     {
         /// <inheritdoc />
