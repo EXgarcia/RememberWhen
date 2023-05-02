@@ -8,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<MemoryService>();
 builder.Services.AddScoped<PasswordService>();
+builder.Services.AddScoped<FolderService>();
 
 var connectionString = builder.Configuration.GetConnectionString("MyMemoryString");
 builder.Services.AddDbContext<DataContext>(options => options.UseSqlServer(connectionString) );

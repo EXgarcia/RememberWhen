@@ -77,7 +77,7 @@ namespace RememberWhen.Controllers
         }
 
 
-        [HttpPost]
+        [HttpPut]
         [Route("UpdateMemoryItem")]
         public bool UpdateMemoryItem(MemoryItemModel MemoryUpdate)
         {
@@ -91,8 +91,13 @@ namespace RememberWhen.Controllers
             return _data.DeleteMemoryItem(MemoryDelete);
         }
 
+        [HttpGet]
+        [Route("GetItemsByFolderId/{folderId}")]
+        public IEnumerable<MemoryItemModel> GetItemsByFolderId(int folderId)
+        {
+            return _data.GetItemsByFolderId(folderId);
+        }
 
-        
 
     }
 
