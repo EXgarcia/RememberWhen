@@ -13,11 +13,7 @@
   "ProjectWorkspaceState": {
     "TagHelpers": [
       {
-<<<<<<< HEAD
         "HashCode": -1137317869,
-=======
-        "HashCode": 1812933101,
->>>>>>> 080a845aecb9baac5ddefc2ea2788fb080821505
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Authorization.AuthorizeRouteView",
         "AssemblyName": "Microsoft.AspNetCore.Components.Authorization",
