@@ -41,6 +41,7 @@ namespace RememberWhen.Properties.Services
                 var hashPassword = HashPassword(UserToAdd.Password);
                 newUser.Id = UserToAdd.Id;
                 newUser.Username = UserToAdd.Username;
+                newUser.Email = UserToAdd.Email;
                 newUser.Salt = hashPassword.Salt;
                 newUser.Hash = hashPassword.Hash;
 

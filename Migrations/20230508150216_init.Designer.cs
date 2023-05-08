@@ -11,7 +11,7 @@ using RememberWhen.Properties.Services.Context;
 namespace RememberWhen.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230501232229_init")]
+    [Migration("20230508150216_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -100,6 +100,9 @@ namespace RememberWhen.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Hash")
                         .HasColumnType("nvarchar(max)");

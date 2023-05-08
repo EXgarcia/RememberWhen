@@ -98,6 +98,9 @@ namespace RememberWhen.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Hash")
                         .HasColumnType("nvarchar(max)");
 
