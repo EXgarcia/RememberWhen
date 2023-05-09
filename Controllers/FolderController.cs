@@ -51,6 +51,12 @@ namespace RememberWhen.Controllers
             return _data.DeleteFolder(FolderDelete);
         }
 
+        [HttpGet]
+        [Route("folderNameByFolderId/{folderId}")]
+        public FolderDTO GetFolderNameByFolderId(int folderId){
+            return _data.GetFolderNameByFolderId(folderId);
+        }
+
 
 
     }

@@ -48,5 +48,23 @@ namespace RememberWhen.Properties.Services
             return _context.SaveChanges() != 0;
         }
 
+        public FolderDTO GetFolderNameByFolderId(int folderId){
+            var FolderInfo = new FolderDTO();
+            var foundFolder = _context.FolderInfo.SingleOrDefault(folder => folder.FolderId == folderId);
+            FolderInfo.FolderId = foundFolder.FolderId;
+            FolderInfo.FolderName = foundFolder.FolderName;
+            return FolderInfo;
+
+        }
+
+        // public UserIdDTO GetUserIdDTOByUsername(string username)
+        // {
+        //     var UserInfo = new UserIdDTO();
+        //     var foundUser = _context.UserInfo.SingleOrDefault(user => user.Username == username);
+        //     UserInfo.UserId = foundUser.Id;
+        //     UserInfo.PublisherName = foundUser.Username;
+        //     return UserInfo;
+        // }
+
     }
 }
