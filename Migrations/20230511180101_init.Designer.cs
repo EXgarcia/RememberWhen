@@ -11,7 +11,7 @@ using RememberWhen.Properties.Services.Context;
 namespace RememberWhen.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230508150216_init")]
+    [Migration("20230511180101_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -31,6 +31,12 @@ namespace RememberWhen.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("FolderId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("FolderName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()

@@ -3724,24 +3724,26 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\extur\\.nuget\\packages\\": {}
+    "C:\\Users\\starf\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\extur\\Documents\\Level 3\\RememberWhen\\RememberWhen.csproj",
+      "projectUniqueName": "C:\\Users\\starf\\OneDrive\\Documents\\Code Stack 22-23\\Level3\\ReactProjects\\rememberwhenbackend\\RememberWhen\\RememberWhen.csproj",
       "projectName": "RememberWhen",
-      "projectPath": "C:\\Users\\extur\\Documents\\Level 3\\RememberWhen\\RememberWhen.csproj",
-      "packagesPath": "C:\\Users\\extur\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\extur\\Documents\\Level 3\\RememberWhen\\obj\\",
+      "projectPath": "C:\\Users\\starf\\OneDrive\\Documents\\Code Stack 22-23\\Level3\\ReactProjects\\rememberwhenbackend\\RememberWhen\\RememberWhen.csproj",
+      "packagesPath": "C:\\Users\\starf\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\starf\\OneDrive\\Documents\\Code Stack 22-23\\Level3\\ReactProjects\\rememberwhenbackend\\RememberWhen\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\extur\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\starf\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
