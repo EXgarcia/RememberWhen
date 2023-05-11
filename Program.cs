@@ -16,7 +16,7 @@ builder.Services.AddDbContext<DataContext>(options => options.UseSqlServer(conne
 builder.Services.AddCors(options => {
     options.AddPolicy("RememberWhenPolicy", 
     builder => {
-        builder.WithOrigins("http://localhost:3000","https://remember-when.azurewebsites.net, http://localhost:5173")
+        builder.WithOrigins("http://localhost:3000","https://remember-when.azurewebsites.net", "http://localhost:5173")
         .AllowAnyHeader()
         .AllowAnyMethod();
     });
