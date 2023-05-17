@@ -31,7 +31,7 @@ namespace RememberWhen.Properties.Services
 
         public IEnumerable<FolderModel> GetFoldersByUserId(int userId)
         {
-            return _context.FolderInfo.Where(folder => folder.userId == userId);
+            return _context.FolderInfo.Where(folder => folder.userId == userId && folder.isDeleted == false);
 
         }
 
@@ -48,7 +48,8 @@ namespace RememberWhen.Properties.Services
             return _context.SaveChanges() != 0;
         }
 
-        public FolderDTO GetFolderNameByFolderId(int folderId){
+        public FolderDTO GetFolderNameByFolderId(int folderId)
+        {
             var FolderInfo = new FolderDTO();
             var foundFolder = _context.FolderInfo.SingleOrDefault(folder => folder.FolderId == folderId);
             FolderInfo.FolderId = foundFolder.FolderId;
