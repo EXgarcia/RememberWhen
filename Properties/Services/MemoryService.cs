@@ -29,9 +29,9 @@ namespace RememberWhen.Properties.Services
         }
 
 
-        public IEnumerable<MemoryItemModel> GetItemsByUserId(int userId)
+        public IEnumerable<MemoryItemModel> GetItemsByUserId(int userId, bool notDeleted)
         {
-            return _context.MemoryInfo.Where(item => item.UserID == userId);
+            return _context.MemoryInfo.Where(item => item.UserID == userId && item.isDeleted == notDeleted);
 
         }
 
@@ -102,9 +102,9 @@ namespace RememberWhen.Properties.Services
             return _context.SaveChanges() != 0;
         }
 
-        public IEnumerable<MemoryItemModel> GetItemsByFolderId(int folderId)
+        public IEnumerable<MemoryItemModel> GetItemsByFolderId(int folderId, bool notDeleted)
         {
-            return _context.MemoryInfo.Where(item => item.FolderId == folderId);
+            return _context.MemoryInfo.Where(item => item.FolderId == folderId && item.isDeleted == false);
         }
     }
 }

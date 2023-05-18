@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/84c98ce1-a946-4e9b-858d-aa4b0800be77/resourceGroups/RememberWhenWebsite/providers/Microsoft.Web/sites/RememberWhenAgain",
+    "appService.deploySubpath": "publish"
+}

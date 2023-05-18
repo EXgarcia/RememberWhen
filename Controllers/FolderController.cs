@@ -31,10 +31,10 @@ namespace RememberWhen.Controllers
         }
 
         [HttpGet]
-        [Route("GetFoldersByUserId/{userid}")]
-        public IEnumerable<FolderModel> GetFoldersByUserId(int userid)
+        [Route("GetFoldersByUserId/{userid}/{notDeleted}")]
+        public IEnumerable<FolderModel> GetFoldersByUserId(int userid, bool notDeleted)
         {
-            return _data.GetFoldersByUserId(userid);
+            return _data.GetFoldersByUserId(userid, notDeleted);
         }
 
         [HttpPut]

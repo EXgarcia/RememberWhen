@@ -29,9 +29,10 @@ namespace RememberWhen.Properties.Services
 
         }
 
-        public IEnumerable<FolderModel> GetFoldersByUserId(int userId)
+        public IEnumerable<FolderModel> GetFoldersByUserId(int userId, bool notDeleted)
+        
         {
-            return _context.FolderInfo.Where(folder => folder.userId == userId);
+            return _context.FolderInfo.Where(folder => folder.userId == userId && folder.isDeleted == notDeleted);
 
         }
 

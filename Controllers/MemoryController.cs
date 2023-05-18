@@ -33,10 +33,10 @@ namespace RememberWhen.Controllers
         }
 
         [HttpGet]
-        [Route("GetItemsByUserId/{UserId}")]
-        public IEnumerable<MemoryItemModel> GetItemsByUserId(int userid)
+        [Route("GetItemsByUserId/{UserId}/{notDeleted}")]
+        public IEnumerable<MemoryItemModel> GetItemsByUserId(int userid, bool notDeleted)
         {
-            return _data.GetItemsByUserId(userid);
+            return _data.GetItemsByUserId(userid, notDeleted);
         }
 
         [HttpGet]
@@ -92,10 +92,10 @@ namespace RememberWhen.Controllers
         }
 
         [HttpGet]
-        [Route("GetItemsByFolderId/{folderId}")]
-        public IEnumerable<MemoryItemModel> GetItemsByFolderId(int folderId)
+        [Route("GetItemsByFolderId/{folderId}/{notDeleted}")]
+        public IEnumerable<MemoryItemModel> GetItemsByFolderId(int folderId, bool notDeleted)
         {
-            return _data.GetItemsByFolderId(folderId);
+            return _data.GetItemsByFolderId(folderId, notDeleted);
         }
 
 
