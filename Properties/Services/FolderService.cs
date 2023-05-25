@@ -22,11 +22,19 @@ namespace RememberWhen.Properties.Services
         {
             _context = context;
         }
+      public bool DoesFolderExist(string? FolderName, int userId, bool notDeleted)
+        {
+            return _context.FolderInfo.SingleOrDefault(folder => folder.Name == FolderName && folder.userId == userId && folder.isDeleted == notDeleted) != null;
+        }
         public bool AddFolder(FolderModel newFolder)
         {
-            _context.Add(newFolder);
-            return _context.SaveChanges() != 0;
-
+            bool result = false;
+            if (!DoesFolderExist(newFolder.Name, newFolder.userId, newFolder.isDeleted))
+            {
+                _context.Add(newFolder);
+                result = _context.SaveChanges() != 0;
+            }
+            return result;
         }
 
         public IEnumerable<FolderModel> GetFoldersByUserId(int userId, bool notDeleted)
@@ -36,10 +44,15 @@ namespace RememberWhen.Properties.Services
 
         }
 
-        public bool UpdateFolder(FolderModel FolderUpdate)
+       public bool UpdateFolder(FolderModel FolderUpdate)
         {
-            _context.Update<FolderModel>(FolderUpdate);
-            return _context.SaveChanges() != 0;
+            bool result = false;
+            if (!DoesFolderExist(FolderUpdate.Name, FolderUpdate.userId, FolderUpdate.isDeleted))
+            {
+                _context.Update<FolderModel>(FolderUpdate);
+                result = _context.SaveChanges() != 0;
+            }
+            return result;
         }
 
         public bool DeleteFolder(FolderModel FolderDelete)
