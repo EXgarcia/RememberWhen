@@ -19,7 +19,7 @@ namespace RememberWhen.Models
         public string? Tags { get; set; }
         public bool isPublished { get; set; }
         public bool isDeleted { get; set; }
-
+        public string? Audio { get; set; }
         public MemoryItemModel() { }
     }
 }
